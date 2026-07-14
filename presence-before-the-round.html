@@ -1,0 +1,583 @@
+<meta charset="utf-8">
+<title>LinkedIn case studies — presence before the round</title>
+<style>
+  :root{
+    --page:#f7f7f5; --surface:#ffffff; --surface-2:#f0f0ee;
+    --ink:#0f0f0e; --ink-2:#555550; --muted:#888882;
+    --line:#e0e0dc; --line-2:#d0d0cb;
+    --clay:#0a66c2; --clay-2:#084d94; --clay-soft:#e8f1fb;
+    --amber:#0a66c2; --amber-soft:#dce8f5;
+    --pine:#2e7d32; --pine-soft:#d9e6dc;
+    --ring:rgba(10,102,194,.08);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0}
+  .wrap{
+    font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    color:var(--ink); background:var(--page);
+    line-height:1.55; -webkit-font-smoothing:antialiased;
+  }
+  .col{max-width:920px; margin:0 auto; padding:0 24px}
+  .eyebrow{
+    font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--clay-2); font-weight:650; margin:0 0 14px;
+  }
+  h1{font-size:clamp(32px,6vw,52px); line-height:1.05; letter-spacing:-.02em; margin:0 0 20px; font-weight:700}
+  h2{font-size:clamp(23px,3.6vw,30px); line-height:1.15; letter-spacing:-.01em; margin:0 0 14px; font-weight:680}
+  h3{font-size:15px; letter-spacing:.03em; text-transform:uppercase; color:var(--clay-2); margin:0 0 10px; font-weight:650}
+  p{margin:0 0 16px; font-size:17px; color:var(--ink)}
+  p.lede{font-size:clamp(18px,2.4vw,21px); color:var(--ink-2); max-width:640px}
+  .sub{color:var(--ink-2)}
+  section{padding:56px 0; border-top:none}
+
+  /* section skins */
+  .skin{height:80px;overflow:hidden;position:relative;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .skin svg{position:absolute;inset:0;width:100%;height:100%}
+
+  .skin-game{background:#eef0ed}
+  .skin-game svg{opacity:.25}
+  @media(prefers-color-scheme:dark){.skin-game{background:#1a1c1f}.skin-game svg{opacity:.15}}
+
+  .skin-cfo{background:#e8e9ee}
+  .skin-cfo svg{opacity:.4}
+  @media(prefers-color-scheme:dark){.skin-cfo{background:#1a1c1f}.skin-cfo svg{opacity:.2}}
+
+  .skin-neuro{background:#e8e9ed}
+  .skin-neuro svg{opacity:.35}
+  @media(prefers-color-scheme:dark){.skin-neuro{background:#1a1c1f}.skin-neuro svg{opacity:.2}}
+  .hero{padding:88px 0 64px; border-top:none; background:linear-gradient(180deg,#e8f1fb,var(--page))}
+  .step{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--clay);text-transform:uppercase;margin-bottom:8px}
+
+  /* stat tiles */
+  .tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 4px}
+  .tile{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 18px}
+  .tile .n{font-size:clamp(26px,4vw,34px);font-weight:730;letter-spacing:-.02em;line-height:1}
+  .tile .l{font-size:13px;color:var(--ink-2);margin-top:8px;line-height:1.35}
+  @media(max-width:720px){.tiles{grid-template-columns:repeat(2,1fr)}}
+
+  /* two-up */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  @media(max-width:720px){.duo{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+  .card.warm{background:var(--surface-2)}
+
+  /* measure list */
+  .measure{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:8px}
+  @media(max-width:720px){.measure{grid-template-columns:1fr}}
+  .measure .q{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--clay);border-radius:12px;padding:18px}
+  .measure .q b{display:block;font-size:16px;margin-bottom:6px}
+  .measure .q span{font-size:14.5px;color:var(--ink-2)}
+
+  /* bars */
+  .bars{margin-top:6px}
+  .bar-row{display:grid;grid-template-columns:190px 1fr 48px;align-items:center;gap:12px;margin:11px 0}
+  .bar-row .cat{font-size:14.5px;color:var(--ink);text-align:right}
+  .bar-track{background:var(--surface-2);border-radius:6px;height:22px;overflow:hidden;border:1px solid var(--line)}
+  .bar-fill{height:100%;border-radius:6px 4px 4px 6px;background:var(--clay)}
+  .bar-row .val{font-size:14px;font-weight:650;color:var(--clay-2);font-variant-numeric:tabular-nums}
+  @media(max-width:720px){.bar-row{grid-template-columns:120px 1fr 40px}.bar-row .cat{font-size:13px}}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{font-size:13px;background:var(--surface);border:1px solid var(--line-2);border-radius:999px;padding:6px 13px;color:var(--ink-2)}
+  .chip b{color:var(--ink);font-weight:640}
+
+  /* post cards */
+  .posts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:6px}
+  @media(max-width:720px){.posts{grid-template-columns:1fr}}
+  .post{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .post .meta{font-size:12px;color:var(--muted);margin-bottom:10px;display:flex;justify-content:space-between}
+  .post .hook{font-size:16.5px;color:var(--ink);line-height:1.4}
+  .post .badge{font-size:12px;font-weight:650;color:var(--clay-2)}
+
+  .callout{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);border-radius:18px;padding:30px 28px}
+  .foot{padding:56px 0 80px;text-align:center;color:var(--ink-2)}
+  .note{font-size:13.5px;color:var(--muted);margin-top:22px}
+  /* A→B comparison block */
+  .ab{display:grid;grid-template-columns:1fr 48px 1fr;gap:0;align-items:stretch;margin:8px 0 4px}
+  @media(max-width:720px){.ab{grid-template-columns:1fr;gap:0}}
+  .ab-side{border:1px solid var(--line);border-radius:18px;padding:28px 24px}
+  .ab-side.before{background:var(--surface-2)}
+  .ab-side.after{background:var(--surface);border-color:var(--clay);border-width:2px}
+  .ab-arrow{display:flex;align-items:center;justify-content:center;color:var(--clay);font-size:28px;font-weight:700}
+  @media(max-width:720px){.ab-arrow{padding:12px 0;transform:rotate(90deg)}}
+  .ab-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+  .ab-label.a{color:var(--muted)}
+  .ab-label.b{color:var(--clay)}
+  .ab-stat{margin-bottom:16px}
+  .ab-stat:last-child{margin-bottom:0}
+  .ab-stat .v{font-size:clamp(22px,3.5vw,30px);font-weight:730;letter-spacing:-.02em;line-height:1}
+  .ab-stat .d{font-size:13px;color:var(--ink-2);margin-top:5px;line-height:1.35}
+  .ab-was{font-size:12px;color:var(--muted);font-weight:400;margin-left:6px}
+  .ab-stat.highlight .v{color:var(--clay)}
+  .ab-stat .breakdown{font-size:12.5px;color:var(--muted);margin-top:3px}
+  .ab-stat .gain{position:absolute;top:0;right:0;font-size:13px;font-weight:650;color:var(--pine)}
+  .ab-stat.has-gain{position:relative}
+
+  .goal{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px 26px;margin-bottom:32px}
+  .goal h3{margin-bottom:8px}
+  .goal p{font-size:16px;margin-bottom:0}
+  .goal .detail{font-size:14px;color:var(--ink-2);margin-top:10px;margin-bottom:0}
+
+  .outcome{background:linear-gradient(180deg,var(--surface-2),var(--surface));border:1px solid var(--line);border-left:3px solid var(--clay);border-radius:12px;padding:22px 24px;margin-top:24px}
+  .outcome h3{margin-bottom:8px}
+  .outcome p{font-size:16px;margin-bottom:0}
+
+  /* goal↔results side-by-side */
+  .gr{display:grid;grid-template-columns:1fr 48px 1fr;grid-template-rows:auto 1fr 1fr;gap:0;align-items:stretch;margin-bottom:32px}
+  @media(max-width:720px){.gr{grid-template-columns:1fr;grid-template-rows:auto;gap:0}}
+  .gr-side{border:1px solid var(--line);border-radius:18px;padding:28px 24px;grid-row:1/-1;display:grid;grid-template-rows:subgrid;align-content:start}
+  @media(max-width:720px){.gr-side{grid-row:auto;display:block}}
+  .gr-side.gr-goal{background:var(--surface)}
+  .gr-side.gr-result{background:var(--surface);border-color:var(--clay);border-width:2px}
+  .gr-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+  .gr-label.gl{color:var(--muted)}
+  .gr-label.rl{color:var(--clay)}
+  .gr-side p{font-size:16px;margin:0 0 12px;line-height:1.55}
+  .gr-side p:last-child{margin-bottom:0}
+  .gr-side .detail{font-size:14px;color:var(--ink-2);margin-top:10px}
+  .cadence{font-size:15px;color:var(--ink-2);margin:0 0 28px;padding:0 2px}
+  .gr-row{display:flex;align-items:flex-start;gap:0;margin-bottom:14px}
+  .gr-row:last-child{margin-bottom:0}
+  .gr-row .gr-bullet{flex-shrink:0;width:8px;height:8px;border-radius:50%;margin-top:7px;margin-right:12px}
+  .gr-row p{margin:0;font-size:16px;line-height:1.55}
+  .gr-connect{display:flex;align-items:center;justify-content:center;width:48px;min-width:48px;grid-row:1/-1}
+  @media(max-width:720px){.gr-connect{width:auto;min-width:auto;padding:12px 0}.gr-connect svg{transform:rotate(90deg)}}
+  .gr-connect svg{width:24px;height:24px;color:var(--clay);opacity:.5}
+
+  /* highlight colors */
+  :root{
+    --hl-1:#e0f0e6;--hl-1-dot:#2e7d32;
+    --hl-2:#dce8f5;--hl-2-dot:#0a66c2;
+    --hl-3:#f5e6d8;--hl-3-dot:#c76f2e;
+  }
+  @media(prefers-color-scheme:dark){:root{
+    --hl-1:#1a3324;--hl-1-dot:#4caf50;
+    --hl-2:#152740;--hl-2-dot:#4a9eed;
+    --hl-3:#33251a;--hl-3-dot:#e09860;
+  }}
+  .hl{padding:2px 5px;border-radius:4px;font-weight:500}
+  .hl-1{background:var(--hl-1)}
+  .hl-2{background:var(--hl-2)}
+  .hl-3{background:var(--hl-3)}
+
+  /* carousel */
+  .carousel{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:8px 0 20px}
+  .carousel::-webkit-scrollbar{height:6px}
+  .carousel::-webkit-scrollbar-track{background:var(--surface-2);border-radius:3px}
+  .carousel::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:3px}
+  .post-card{flex:0 0 360px;scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  @media(max-width:720px){.post-card{flex:0 0 300px}}
+  .post-card-tag{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--clay-2);padding:10px 16px 6px}
+  .post-card-imgs{position:relative;max-height:478px;overflow-y:auto;overflow-x:hidden}
+  .post-card-imgs::-webkit-scrollbar{width:4px}
+  .post-card-imgs::-webkit-scrollbar-track{background:var(--surface-2)}
+  .post-card-imgs::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:2px}
+  .post-card-imgs img{display:block;width:100%}
+  .post-card-imgs img + img{margin-top:-1px}
+  .post-card-scroll-hint{display:none;position:absolute;bottom:0;left:0;right:0;height:48px;background:linear-gradient(transparent,rgba(255,255,255,0.85));pointer-events:none;z-index:3;border-radius:0 0 14px 14px}
+  .post-card-scroll-hint span{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600;pointer-events:none}
+  .post-card.has-scroll .post-card-scroll-hint{display:block}
+  @media (prefers-color-scheme: dark){.post-card-scroll-hint{background:linear-gradient(transparent,rgba(30,32,36,0.85))}}
+  .blur-identity,.blur-reaction-avatar{display:none}
+  .post-card-foot{padding:10px 16px 12px;border-top:1px solid var(--line);display:flex;gap:16px;font-size:12.5px;color:var(--ink-2)}
+  .post-card-foot b{font-weight:650;color:var(--ink)}
+
+  svg{display:block;width:100%;height:auto}
+  .axis{font-size:12px;fill:var(--muted);font-family:inherit}
+  @media (prefers-color-scheme: dark){
+    .wrap{--page:#141618;--surface:#1e2024;--surface-2:#1a1c1f;--ink:#e8eaed;--ink-2:#a0a4ab;--muted:#6b7078;--line:#2a2d32;--line-2:#353840;--clay-soft:#152740;--clay:#4a9eed;--clay-2:#6db3f5;--amber:#4a9eed;}
+    .hero{background:linear-gradient(180deg,#1a2030,var(--page))}
+  }
+</style>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="col">
+      <img src="logo_blue.png" alt="VC Lens" style="height:32px;width:auto;margin-bottom:28px">
+      <p class="eyebrow">LinkedIn case studies</p>
+      <h1>Building presence before you need it</h1>
+    </div>
+  </header>
+
+  <!-- CASE STUDY 1 -->
+  <div class="skin skin-game">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 80" preserveAspectRatio="xMidYMid slice">
+      <defs><style>.gp{fill:var(--ink,#0f0f0e)}</style></defs>
+      <!-- pixel grid pattern -->
+      <g transform="translate(20,10)">
+        <!-- small pixel blocks scattered like terrain -->
+        <rect class="gp" x="0" y="50" width="8" height="8" rx="1"/>
+        <rect class="gp" x="8" y="42" width="8" height="8" rx="1"/>
+        <rect class="gp" x="8" y="50" width="8" height="8" rx="1"/>
+        <rect class="gp" x="16" y="50" width="8" height="8" rx="1"/>
+        <rect class="gp" x="16" y="42" width="8" height="8" rx="1"/>
+        <rect class="gp" x="16" y="34" width="8" height="8" rx="1"/>
+        <rect class="gp" x="24" y="50" width="8" height="8" rx="1"/>
+      </g>
+      <!-- controller icon -->
+      <g transform="translate(120,25)">
+        <rect class="gp" x="0" y="8" width="30" height="18" rx="9"/>
+        <rect class="gp" x="6" y="12" width="3" height="10" rx="1"/>
+        <rect class="gp" x="3" y="15" width="9" height="3" rx="1"/>
+        <circle class="gp" cx="22" cy="14" r="2"/>
+        <circle class="gp" cx="26" cy="18" r="2"/>
+      </g>
+      <!-- pixel hearts -->
+      <g transform="translate(240,20)">
+        <rect class="gp" x="0" y="4" width="4" height="4"/><rect class="gp" x="4" y="0" width="4" height="4"/><rect class="gp" x="8" y="4" width="4" height="4"/>
+        <rect class="gp" x="12" y="4" width="4" height="4"/><rect class="gp" x="16" y="0" width="4" height="4"/><rect class="gp" x="20" y="4" width="4" height="4"/>
+        <rect class="gp" x="2" y="8" width="20" height="4"/><rect class="gp" x="4" y="12" width="16" height="4"/><rect class="gp" x="6" y="16" width="12" height="4"/><rect class="gp" x="8" y="20" width="8" height="4"/><rect class="gp" x="10" y="24" width="4" height="4"/>
+      </g>
+      <!-- more pixel blocks -->
+      <g transform="translate(350,35)">
+        <rect class="gp" x="0" y="20" width="6" height="6"/><rect class="gp" x="6" y="14" width="6" height="6"/><rect class="gp" x="6" y="20" width="6" height="6"/>
+        <rect class="gp" x="12" y="8" width="6" height="6"/><rect class="gp" x="12" y="14" width="6" height="6"/><rect class="gp" x="12" y="20" width="6" height="6"/>
+        <rect class="gp" x="18" y="14" width="6" height="6"/><rect class="gp" x="18" y="20" width="6" height="6"/>
+        <rect class="gp" x="24" y="20" width="6" height="6"/>
+      </g>
+      <!-- stars -->
+      <g class="gp" transform="translate(480,15)">
+        <polygon points="6,0 7.5,4.5 12,4.5 8.5,7 9.5,12 6,9 2.5,12 3.5,7 0,4.5 4.5,4.5"/>
+      </g>
+      <g class="gp" transform="translate(530,40)">
+        <polygon points="4,0 5,3 8,3 5.5,5 6.5,8 4,6 1.5,8 2.5,5 0,3 3,3"/>
+      </g>
+      <!-- coin -->
+      <g transform="translate(600,20)">
+        <circle cx="12" cy="12" r="12" fill="none" stroke="var(--ink,#0f0f0e)" stroke-width="2"/>
+        <text x="12" y="17" text-anchor="middle" font-size="14" font-weight="700" class="gp">$</text>
+      </g>
+      <!-- pixel sword -->
+      <g class="gp" transform="translate(700,15)">
+        <rect x="10" y="0" width="4" height="4"/><rect x="10" y="4" width="4" height="4"/><rect x="10" y="8" width="4" height="4"/>
+        <rect x="10" y="12" width="4" height="4"/><rect x="10" y="16" width="4" height="4"/>
+        <rect x="4" y="20" width="4" height="4"/><rect x="16" y="20" width="4" height="4"/>
+        <rect x="0" y="24" width="4" height="4"/><rect x="20" y="24" width="4" height="4"/>
+        <rect x="10" y="28" width="4" height="8"/>
+        <rect x="6" y="36" width="12" height="4"/>
+      </g>
+    </svg>
+  </div>
+  <section>
+    <div class="col">
+      <p class="eyebrow" style="margin-top:0">Case study 1</p>
+      <h2 style="margin-bottom:24px">Founder of a B2C gaming platform · pre-seed, pre-product</h2>
+      <div class="gr">
+        <div class="gr-side gr-goal">
+          <div class="gr-label gl">The goal</div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-1-dot)"></div><p>Start talking to the market — <span class="hl hl-1">game developers, studio operators, potential users</span></p></div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-2-dot)"></div><p>Let their responses <span class="hl hl-2">shape the product direction</span></p></div>
+        </div>
+        <div class="gr-connect"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+        <div class="gr-side gr-result">
+          <div class="gr-label rl">Results</div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-1-dot)"></div><p><span class="hl hl-1">649 comments from founders, game developers, and studio operators</span> sharing their feedback on founder's vision</p></div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-2-dot)"></div><p>He used it to <span class="hl hl-2">pivot his positioning</span>, and set priorities for product development</p></div>
+        </div>
+      </div>
+      <p class="cadence">Cadence: 2–3 posts per week.</p>
+
+      <div class="ab">
+        <div class="ab-side before">
+          <div class="ab-label a">Point A · before Feb 2026</div>
+          <div class="ab-stat"><div class="v">31</div><div class="d">impressions in 34 days</div></div>
+          <div class="ab-stat"><div class="v">6</div><div class="d">real people reached</div></div>
+          <div class="ab-stat"><div class="v">1</div><div class="d">engagement — one reaction, zero comments</div></div>
+          <div class="ab-stat"><div class="v">2,565</div><div class="d">followers</div></div>
+        </div>
+        <div class="ab-arrow">→</div>
+        <div class="ab-side after">
+          <div class="ab-label b">Point B · five months later</div>
+          <div class="ab-stat"><div class="v">157,151</div><div class="d">impressions across the run</div></div>
+          <div class="ab-stat"><div class="v">60,845</div><div class="d">real people reached</div></div>
+          <div class="ab-stat highlight"><div class="v">1,417</div><div class="d">engagements</div><div class="breakdown">649 comments · 657 reactions · 100 saves · 11 sends</div></div>
+          <div class="ab-stat has-gain"><span class="gain">+377</span><div class="v">2,942</div><div class="d">followers</div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px">
+        <h3>Post examples</h3>
+        <div class="carousel">
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="post1.png" alt="Post about Unity and Unreal AI limitations">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="post2.png" alt="Post about vibe-coded capybara game">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="post3a.png" alt="Post about Roblox $458M - part 1">
+              <img src="post3b.png" alt="Post about Roblox $458M - part 2">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="post4a.png" alt="Post about game creation as group chat - part 1">
+              <img src="post4b.png" alt="Post about game creation as group chat - part 2">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY 2: FRACTIONAL CFO -->
+  <div class="skin skin-cfo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 80" preserveAspectRatio="xMidYMid slice">
+      <defs><style>.cp{fill:var(--ink,#0f0f0e);font-family:system-ui,-apple-system,sans-serif}</style></defs>
+      <!-- scattered numbers and symbols -->
+      <text class="cp" x="30" y="30" font-size="22" font-weight="700">$</text>
+      <text class="cp" x="80" y="55" font-size="14">127K</text>
+      <text class="cp" x="150" y="25" font-size="11">EBITDA</text>
+      <text class="cp" x="160" y="60" font-size="18" font-weight="600">%</text>
+      <!-- mini bar chart -->
+      <g transform="translate(230,15)">
+        <rect class="cp" x="0" y="35" width="8" height="15" rx="1"/>
+        <rect class="cp" x="12" y="25" width="8" height="25" rx="1"/>
+        <rect class="cp" x="24" y="15" width="8" height="35" rx="1"/>
+        <rect class="cp" x="36" y="5" width="8" height="45" rx="1"/>
+      </g>
+      <text class="cp" x="310" y="35" font-size="13">P&amp;L</text>
+      <text class="cp" x="370" y="55" font-size="20" font-weight="700">$</text>
+      <text class="cp" x="400" y="28" font-size="12">ROI</text>
+      <!-- pie chart slice -->
+      <g transform="translate(460,40)">
+        <circle cx="0" cy="0" r="18" fill="none" stroke="var(--ink,#0f0f0e)" stroke-width="2"/>
+        <path d="M0,0 L0,-18 A18,18 0 0,1 15.6,9 Z" class="cp"/>
+      </g>
+      <text class="cp" x="510" y="50" font-size="14">42%</text>
+      <text class="cp" x="570" y="25" font-size="11">BURN</text>
+      <!-- trend line -->
+      <g transform="translate(620,10)">
+        <polyline points="0,45 15,38 30,42 45,30 60,25 75,15 90,8" fill="none" stroke="var(--ink,#0f0f0e)" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="90" cy="8" r="3" class="cp"/>
+      </g>
+      <text class="cp" x="740" y="55" font-size="16" font-weight="600">$</text>
+    </svg>
+  </div>
+  <section>
+    <div class="col">
+      <p class="eyebrow" style="margin-top:24px">Case study 2</p>
+      <h2>Fractional CFO · solo consulting practice</h2>
+
+      <div class="gr">
+        <div class="gr-side gr-goal">
+          <div class="gr-label gl">The goal</div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-1-dot)"></div><p>Build a visible presence that <span class="hl hl-1">attracts new consulting clients</span></p></div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-2-dot)"></div><p>Put the founder in front of the right <span class="hl hl-2">hiring conversations</span> — before he has to go looking for them</p></div>
+        </div>
+        <div class="gr-connect"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+        <div class="gr-side gr-result">
+          <div class="gr-label rl">Results</div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-1-dot)"></div><p><span class="hl hl-1">4 new clients on subscription</span>. A steady flow of inbound leads surfacing through AI-powered search and LinkedIn discovery.</p></div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-2-dot)"></div><p>Roughly <span class="hl hl-2">3 qualified hiring opportunities per month</span> — all from content visibility alone</p></div>
+        </div>
+      </div>
+      <p class="cadence">Cadence: five posts per week focused on larger audience with educational content.</p>
+
+      <div class="ab">
+        <div class="ab-side before">
+          <div class="ab-label a">Point A · before Dec 2025</div>
+          <div class="ab-stat"><div class="v">1,738</div><div class="d">impressions in 30 days</div></div>
+          <div class="ab-stat"><div class="v">486</div><div class="d">real people reached</div></div>
+          <div class="ab-stat"><div class="v">40</div><div class="d">engagements</div></div>
+          <div class="ab-stat"><div class="v">4,820</div><div class="d">followers</div></div>
+        </div>
+        <div class="ab-arrow">→</div>
+        <div class="ab-side after">
+          <div class="ab-label b">Point B · six months later</div>
+          <div class="ab-stat"><div class="v">1,360,180</div><div class="d">impressions across the run</div></div>
+          <div class="ab-stat"><div class="v">508,528</div><div class="d">real people reached</div></div>
+          <div class="ab-stat"><div class="v">5,590</div><div class="d">engagements</div></div>
+          <div class="ab-stat has-gain"><span class="gain">+2,105</span><div class="v">6,925</div><div class="d">followers</div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px">
+        <h3>Post examples</h3>
+        <div class="carousel">
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="doug1.png" alt="Post about fractional CFO vs full-time">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="doug2.png" alt="Post about CFO vs Finance Director vs Accounting Manager">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="doug3.png" alt="Post responding to Reddit on fractional CFO movement">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="doug4.png" alt="Post about CFO vs Controller vs Bookkeeper">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="doug5.png" alt="Post about CEO CFO COO differences">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY 3: WEARABLE FOUNDER -->
+  <div class="skin skin-neuro">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 80" preserveAspectRatio="xMidYMid slice">
+      <defs><style>.np{fill:var(--ink,#0f0f0e);stroke:var(--ink,#0f0f0e)}</style></defs>
+      <!-- EEG brainwave line -->
+      <polyline points="0,45 20,45 30,45 35,20 40,60 45,30 50,55 55,40 60,45 100,45 110,45 115,15 120,65 125,25 130,58 135,42 140,45 180,45 200,45 205,18 210,62 215,28 220,56 225,40 230,45 280,45 300,45 305,22 310,58 315,32 320,52 325,42 330,45 370,45 400,45 405,20 410,60 415,30 420,55 425,42 430,45 470,45" fill="none" class="np" stroke-width="1.5" stroke-linecap="round"/>
+      <!-- neural network nodes -->
+      <g transform="translate(500,10)">
+        <circle cx="10" cy="15" r="4" fill="none" class="np" stroke-width="1.5"/>
+        <circle cx="40" cy="5" r="4" fill="none" class="np" stroke-width="1.5"/>
+        <circle cx="45" cy="35" r="4" fill="none" class="np" stroke-width="1.5"/>
+        <circle cx="80" cy="15" r="4" fill="none" class="np" stroke-width="1.5"/>
+        <circle cx="75" cy="45" r="4" fill="none" class="np" stroke-width="1.5"/>
+        <circle cx="110" cy="25" r="4" fill="none" class="np" stroke-width="1.5"/>
+        <!-- connections -->
+        <line x1="14" y1="15" x2="36" y2="7" class="np" stroke-width="1" fill="none"/>
+        <line x1="14" y1="17" x2="41" y2="33" class="np" stroke-width="1" fill="none"/>
+        <line x1="44" y1="5" x2="76" y2="13" class="np" stroke-width="1" fill="none"/>
+        <line x1="49" y1="35" x2="71" y2="43" class="np" stroke-width="1" fill="none"/>
+        <line x1="44" y1="8" x2="76" y2="43" class="np" stroke-width="1" fill="none"/>
+        <line x1="49" y1="33" x2="76" y2="17" class="np" stroke-width="1" fill="none"/>
+        <line x1="84" y1="17" x2="106" y2="23" class="np" stroke-width="1" fill="none"/>
+        <line x1="79" y1="45" x2="106" y2="27" class="np" stroke-width="1" fill="none"/>
+      </g>
+      <!-- headset silhouette -->
+      <g transform="translate(680,12)">
+        <path d="M10,45 L10,25 C10,10 20,0 30,0 C40,0 50,10 50,25 L50,45" fill="none" class="np" stroke-width="2" stroke-linecap="round"/>
+        <rect x="5" y="38" width="10" height="14" rx="3" fill="none" class="np" stroke-width="1.5"/>
+        <rect x="45" y="38" width="10" height="14" rx="3" fill="none" class="np" stroke-width="1.5"/>
+        <line x1="15" y1="22" x2="45" y2="22" class="np" stroke-width="1.5" fill="none" stroke-dasharray="3,3"/>
+      </g>
+    </svg>
+  </div>
+  <section>
+    <div class="col">
+      <p class="eyebrow" style="margin-top:24px">Case study 3</p>
+      <h2>Founder of a wearable company · seed stage</h2>
+
+      <div class="gr">
+        <div class="gr-side gr-goal">
+          <div class="gr-label gl">The goal</div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-1-dot)"></div><p>Build a larger <span class="hl hl-1">network of investors</span> on LinkedIn</p></div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-2-dot)"></div><p>Every investor who checks the profile should see <span class="hl hl-2">an active presence and a clear narrative</span> — before the conversation even starts</p></div>
+        </div>
+        <div class="gr-connect"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></div>
+        <div class="gr-side gr-result">
+          <div class="gr-label rl">Results</div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-1-dot)"></div><p>Conversations with <span class="hl hl-1">100+ targeted investors</span> on the platform</p></div>
+          <div class="gr-row"><div class="gr-bullet" style="background:var(--hl-2-dot)"></div><p>Every profile visit now <span class="hl hl-2">tells a story — the founder's thesis, the market, the traction</span> — giving investors a reason to engage before the first meeting is even booked</p></div>
+        </div>
+      </div>
+      <p class="cadence">Cadence: five posts per week. Content specifically targeted to investors.</p>
+
+      <div class="ab">
+        <div class="ab-side before">
+          <div class="ab-label a">Point A · before Mar 2026</div>
+          <div class="ab-stat"><div class="v">2,378</div><div class="d">impressions in 28 days</div></div>
+          <div class="ab-stat"><div class="v">887</div><div class="d">real people reached</div></div>
+          <div class="ab-stat"><div class="v">57</div><div class="d">engagements</div></div>
+          <div class="ab-stat"><div class="v">6,660</div><div class="d">followers</div></div>
+        </div>
+        <div class="ab-arrow">→</div>
+        <div class="ab-side after">
+          <div class="ab-label b">Point B · four months later</div>
+          <div class="ab-stat"><div class="v">89,752</div><div class="d">impressions across the run</div></div>
+          <div class="ab-stat"><div class="v">33,256</div><div class="d">real people reached</div></div>
+          <div class="ab-stat highlight"><div class="v">2,232</div><div class="d">engagements</div></div>
+          <div class="ab-stat has-gain"><span class="gain">+1,218</span><div class="v">6,659</div><div class="d">followers</div></div>
+        </div>
+      </div>
+
+      <div style="margin-top:28px">
+        <h3>Post examples</h3>
+        <div class="carousel">
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="kpost1.png" alt="Post about wearable brain training and heartbeat industry">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="kpost2.png" alt="Post about Zuckerberg, Apple EEG, and brain tech">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="kpost3.png" alt="Post about Ronaldo, sport, and brain health">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+          <div class="post-card">
+            <div class="post-card-imgs">
+              <img src="kpost4.png" alt="Post about athletes who saw brain training coming">
+              <div class="post-card-scroll-hint"><span>scroll ↓</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="col">
+      <a href="mailto:maria@polymine.co" style="color:var(--ink-2);text-decoration:none;font-size:16px">maria@polymine.co</a>
+    </div>
+  </footer>
+
+</div>
+<script>
+document.querySelectorAll('.post-card-imgs').forEach(el => {
+  function check() {
+    const overflows = el.scrollHeight > el.clientHeight + 2;
+    const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 8;
+    el.closest('.post-card').classList.toggle('has-scroll', overflows && !atBottom);
+  }
+  el.addEventListener('scroll', check);
+  window.addEventListener('load', check);
+  check();
+});
+</script>
