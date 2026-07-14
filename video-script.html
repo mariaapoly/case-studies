@@ -1,0 +1,140 @@
+<title>Video Script — Case Studies Intro</title>
+<style>
+  @page{margin:1in}
+  :root{
+    --bg:#faf9f7;--surface:#fff;--ink:#1a2234;--ink-2:#4a5568;--muted:#8a94a3;
+    --accent:#0a66c2;--accent-soft:#e8f0fa;--line:#e2e1de;
+  }
+  @media(prefers-color-scheme:dark){:root{
+    --bg:#161821;--surface:#1e2029;--ink:#e2e4ea;--ink-2:#a0a6b4;--muted:#636978;
+    --accent:#5b9bd5;--accent-soft:#1e2740;--line:#2a2d38;
+  }}
+  :root[data-theme="dark"]{
+    --bg:#161821;--surface:#1e2029;--ink:#e2e4ea;--ink-2:#a0a6b4;--muted:#636978;
+    --accent:#5b9bd5;--accent-soft:#1e2740;--line:#2a2d38;
+  }
+  :root[data-theme="light"]{
+    --bg:#faf9f7;--surface:#fff;--ink:#1a2234;--ink-2:#4a5568;--muted:#8a94a3;
+    --accent:#0a66c2;--accent-soft:#e8f0fa;--line:#e2e1de;
+  }
+  *{box-sizing:border-box;margin:0}
+  body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:var(--bg);color:var(--ink);
+    line-height:1.75;-webkit-font-smoothing:antialiased;
+  }
+  .page{max-width:640px;margin:0 auto;padding:48px 24px 80px}
+
+  .header{margin-bottom:48px;padding-bottom:32px;border-bottom:1px solid var(--line)}
+  .header .label{
+    font-family:system-ui,-apple-system,sans-serif;
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--accent);font-weight:650;margin-bottom:12px;
+  }
+  .header h1{font-size:28px;line-height:1.25;font-weight:400;letter-spacing:-.01em;color:var(--ink)}
+  .header .meta{
+    font-family:system-ui,-apple-system,sans-serif;
+    font-size:13px;color:var(--muted);margin-top:12px;
+  }
+
+  .beat{margin-bottom:40px;padding-left:48px;position:relative}
+  .beat-num{
+    position:absolute;left:0;top:2px;
+    font-family:system-ui,-apple-system,sans-serif;
+    font-size:13px;font-weight:700;color:var(--accent);
+    width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+    background:var(--accent-soft);border-radius:50%;
+  }
+  .beat-head{
+    font-family:system-ui,-apple-system,sans-serif;
+    font-size:12px;font-weight:650;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:4px;
+    display:flex;align-items:center;gap:12px;
+  }
+  .beat-time{
+    font-size:11px;font-weight:500;letter-spacing:.04em;
+    color:var(--accent);background:var(--accent-soft);
+    padding:2px 8px;border-radius:99px;
+  }
+  .beat p{font-size:19px;color:var(--ink);margin-top:8px}
+  .beat .direction{
+    font-family:system-ui,-apple-system,sans-serif;
+    font-size:12.5px;color:var(--muted);font-style:italic;
+    margin-top:8px;padding-left:16px;border-left:2px solid var(--line);
+  }
+  .beat .pause{
+    font-family:system-ui,-apple-system,sans-serif;
+    display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--accent);margin:8px 0;
+  }
+
+  .footer{
+    margin-top:48px;padding-top:32px;border-top:1px solid var(--line);
+    font-family:system-ui,-apple-system,sans-serif;
+    font-size:13px;color:var(--muted);
+  }
+  .footer p{margin-bottom:8px}
+
+  @media print{
+    .page{padding:0}
+    .beat p{font-size:17px}
+  }
+</style>
+
+<div class="page">
+
+  <div class="header">
+    <div class="label">Video Script</div>
+    <h1>Case Studies Page Intro</h1>
+    <div class="meta">~90 seconds &middot; talking to camera &middot; conversational pace</div>
+  </div>
+
+  <div class="beat">
+    <div class="beat-num">1</div>
+    <div class="beat-head">The invisible founder <span class="beat-time">0:00 – 0:20</span></div>
+    <p>So, look. Most founders I work with have this in common: they have a product, they have a thesis, they have a vision for what they're building. But the people who need to know about it: investors, potential clients, the right hires: they don't see any of it.</p>
+    <p>The profile is quiet. There's no narrative. And when someone looks them up, there's nothing there to read.</p>
+    <div class="direction">Calm, matter-of-fact. No drama. You're describing something you see every day.</div>
+  </div>
+
+  <div class="beat">
+    <div class="beat-num">2</div>
+    <div class="beat-head">What they try <span class="beat-time">0:20 – 0:35</span></div>
+    <p>Now, a founder can hire a PR firm. Run outreach campaigns. Spend hours asking for introductions. And all of that works, to a degree.</p>
+    <p>But it stops the moment you stop paying for it. None of it compounds.</p>
+    <div class="direction">Slight shrug energy on "to a degree." You're not dismissing these options, you're being honest about their limits.</div>
+  </div>
+
+  <div class="beat">
+    <div class="beat-num">3</div>
+    <div class="beat-head">The reframe <span class="beat-time">0:35 – 0:55</span></div>
+    <p>What I do is different. I help founders build a presence that works before the conversation even starts.</p>
+    <div class="pause">pause</div>
+    <p>What I mean by that: when an investor checks the profile, the story is already there. When a potential client looks them up, there's a clear narrative. The founder becomes findable, credible, and legible to the people who matter: without chasing anyone.</p>
+    <div class="direction">This is the core. Land "before the conversation even starts" with weight. The pause lets it register.</div>
+  </div>
+
+  <div class="beat">
+    <div class="beat-num">4</div>
+    <div class="beat-head">Proof <span class="beat-time">0:55 – 1:15</span></div>
+    <p>I see it in my work right now. One founder got 649 comments from game developers and studio operators: real market feedback that reshaped his product direction.</p>
+    <p>Another, a fractional CFO, landed four new clients on subscription without sending a single cold message.</p>
+    <p>A third had over a hundred conversations with targeted investors on LinkedIn: before the round even opened.</p>
+    <div class="direction">Each example is one sentence. Steady pace, no rushing. Let the numbers land.</div>
+  </div>
+
+  <div class="beat">
+    <div class="beat-num">5</div>
+    <div class="beat-head">The invitation <span class="beat-time">1:15 – 1:30</span></div>
+    <p>Below, you'll see exactly how each of these played out: the starting point, the results, and the posts that got them there.</p>
+    <p>If this is the kind of presence you want to build: reach out.</p>
+    <div class="direction">Warm, direct. Not a pitch. An offer.</div>
+  </div>
+
+  <div class="footer">
+    <p><strong>Total:</strong> ~230 words &middot; ~90 seconds at conversational pace</p>
+    <p><strong>Setup:</strong> Talking to camera. Natural light. No slides, no props. The case studies do the heavy lifting after.</p>
+    <p><strong>Tone:</strong> Expert-to-expert. Calm. Like explaining it to a founder over coffee.</p>
+  </div>
+
+</div>
